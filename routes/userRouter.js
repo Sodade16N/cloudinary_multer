@@ -6,7 +6,7 @@ router.post('/register', upload.single('profilePic'), register)
 router.get('/user/:id', upload.single('profilePic'), getOneUser)
 router.get('/user', upload.single('profilePic'), getAllUser)
 router.put('/user/:id', upload.single('profilePic'), update)
-router.delete('/user/:id', upload.single('profilePic'), deleteUser)
+router.delete('/user/:id', deleteUser)
 
 
 module.exports = router;

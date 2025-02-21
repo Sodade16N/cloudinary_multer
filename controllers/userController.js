@@ -52,6 +52,7 @@ exports.getAllUser = async (req, res) => {
         const user = await userModel.find();
         res.status(200).json({
             message: 'Users found',
+            totalUser: user.length,
             data: user
         })
     }
@@ -106,6 +107,7 @@ exports.update = async (req, res) => {
         if (req.file && req.file.path) {
             await cloudinary.uploader.destroy(user.profilePic.publicId);
         };
+        
         const result = await cloudinary.uploader.upload(req.file.path);
          fs.unlinkSync(req.file.path);
 
